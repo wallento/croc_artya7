@@ -1,5 +1,11 @@
 # Croc template for Nexys A7
 
+After cloning this repo, get the submodules:
+
+```shell
+git submodule update --init
+```
+
 ## Generate bitstream
 
 To create the vivado project:
