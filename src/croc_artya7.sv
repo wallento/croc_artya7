@@ -1,8 +1,8 @@
-module croc_nexysa7 #(
+module croc_artya7 #(
   parameter int unsigned GpioCount = 16
 ) (
   input  logic clk_i,
-  input  logic rst_ni,
+  input  logic rst,
   input  logic testmode_i,
   input  logic fetch_en_i,
   output logic status_o,
@@ -25,6 +25,9 @@ module croc_nexysa7 #(
         .clk_in1  (clk_i),
         .clk_out1 (clk_sys)
     );
+
+    logic rst_ni;
+    assign rst_ni = ~rst;
 
  logic [GpioCount-1:0] gpio_o;
  logic [GpioCount-1:0] gpio_out_en_o; 

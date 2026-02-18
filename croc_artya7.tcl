@@ -24,7 +24,7 @@ if { [info exists ::origin_dir_loc] } {
 }
 
 # Set the project name
-set _xil_proj_name_ "croc_nexysa7"
+set _xil_proj_name_ "croc_artya7"
 
 # Use project name variable, if specified in the tcl shell
 if { [info exists ::user_project_name] } {
@@ -32,7 +32,7 @@ if { [info exists ::user_project_name] } {
 }
 
 # Create project
-create_project "croc_nexysa7" "vivado_project" -part xc7a100tcsg324-1
+create_project "croc_artya7" "vivado_project" -part xc7a100tcsg324-1
 
 # Set the directory path for the new project
 set proj_dir [get_property directory [current_project]]
@@ -183,14 +183,14 @@ set files [list \
  [file normalize "${origin_dir}/croc/rtl/tech_cells_generic/fpga/tc_sram_xilinx.sv"] \
  [file normalize "${origin_dir}/croc/rtl/user_pkg.sv"] \
  [file normalize "${origin_dir}/croc/rtl/user_domain.sv"] \
- [file normalize "${origin_dir}/src/croc_nexysa7.sv"] \
+ [file normalize "${origin_dir}/src/croc_artya7.sv"] \
 ]
 add_files -norecurse -fileset $obj $files
 
 # Set 'sources_1' fileset properties
 set obj [get_filesets sources_1]
 set_property -name "include_dirs" -value "[file normalize "$origin_dir/croc/rtl/common_cells/include"] [file normalize "$origin_dir/croc/rtl/cve2/include"] [file normalize "$origin_dir/croc/rtl/obi/include"] [file normalize "$origin_dir/croc/rtl/apb/include"]" -objects $obj
-set_property -name "top" -value "croc_nexysa7" -objects $obj
+set_property -name "top" -value "croc_artya7" -objects $obj
 set_property -name "top_auto_set" -value "0" -objects $obj
 set_property -name "verilog_define" -value "COMMON_CELLS_ASSERTS_OFF=1 SYNTHESIS=1 TARGET_SYNTHESIS=1" -objects $obj
 
@@ -205,9 +205,9 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/src/croc_nexysa7.xdc"]"
+set file "[file normalize "$origin_dir/src/croc_artya7.xdc"]"
 set file_added [add_files -norecurse -fileset $obj [list $file]]
-set file "$origin_dir/src/croc_nexysa7.xdc"
+set file "$origin_dir/src/croc_artya7.xdc"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property -name "file_type" -value "XDC" -objects $file_obj
