@@ -5,7 +5,7 @@
 To create the vivado project:
 
 ```shell
-vivado -mode tcl -script vivado.tcl
+vivado -mode tcl -script croc_artya7.tcl
 ```
 
 Then open the created project from `vivado_project`.
